@@ -1,9 +1,18 @@
 {
-	"presets": [["@babel/preset-env", { "modules": false }]],
+	"presets": [["@babel/preset-env", { "modules": false, "loose": true }]],
 	"plugins": [
 		"@babel/plugin-transform-member-expression-literals",
 		"@babel/plugin-transform-property-literals",
-		"@babel/plugin-transform-object-assign"
+		"@babel/plugin-transform-object-assign",
+		"babel-plugin-native-error-extend",
+		[
+			"babel-plugin-transform-replace-expressions",
+			{
+				"replace": {
+					"globalThis": "global"
+				}
+			}
+		]
 	],
 	"env": {
 		"test": {
@@ -13,7 +22,8 @@
 					{
 						"modules": false,
 						"useBuiltIns": "usage",
-						"corejs": 2
+						"corejs": 2,
+						"loose": true
 					}
 				]
 			],

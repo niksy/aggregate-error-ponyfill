@@ -1,1 +1,3 @@
-export default function () {}
+import implementation from './implementation';
+
+export default globalThis.AggregateError ?? implementation;

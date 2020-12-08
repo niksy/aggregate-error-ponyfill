@@ -3,7 +3,13 @@
 [![Build Status][ci-img]][ci]
 [![BrowserStack Status][browserstack-img]][browserstack]
 
-AggregateError ponyfill.
+[`AggregateError`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/AggregateError)
+ponyfill.
+
+> The `AggregateError` object represents an error when several errors need to be
+> wrapped in a single error. It is thrown when multiple errors need to be
+> reported by an operation, for example by `Promise.any()`, when all promises
+> passed to it reject.
 
 ## Install
 
@@ -14,85 +20,62 @@ npm install aggregate-error-ponyfill --save
 ## Usage
 
 ```js
-// Module usage
-```
+import AggregateError from 'aggregate-error-ponyfill';
 
-More usage examples.
+(async () => {
+	try {
+		await Promise.any([Promise.reject(new Error('some error'))]);
+	} catch (e) {
+		console.log(e instanceof AggregateError); // true
+		console.log(e.message); // "All Promises rejected"
+		console.log(e.name); // "AggregateError"
+		console.log(e.errors); // [ Error: "some error" ]
+	}
+})();
+
+try {
+	throw new AggregateError([new Error('some error')], 'Hello');
+} catch (e) {
+	console.log(e instanceof AggregateError); // true
+	console.log(e.message); // "Hello"
+	console.log(e.name); // "AggregateError"
+	console.log(e.errors); // [ Error: "some error" ]
+}
+```
 
 ## API
 
-### methodName(arg, [optionalArg])
+### AggregateError(errors[, message])
 
-Returns: `Mixed`
+Returns: `AggregateError`
 
 Method description.
 
-#### arg
+#### errors
 
-Type: `Mixed`
+Type: `Iterable`
 
-arg description.
+An iterable of errors, may not actually be `Error` instances.
 
-#### optionalArg
+#### message
 
-Type: `Object`
+Type: `string`
 
-optionalArg description.
-
-##### prop1
-
-Type: `String`  
-Default: `'3'`
-
-`prop1` description.
-
-##### prop2
-
-Type: `Number`  
-Default: `3`
-
-##### prop3
-
-Type: `Number[]`  
-Default: `[1, 2, 3]`
-
-##### prop4
-
-Type: `Number[]` `String[]`  
-Default: `['1', '2', '3']`
-
-`prop4` description.
-
-##### prop5
-
-Type: `Function`  
-Default: `noop`
-
-`prop5` description.
-
-Function arguments:
-
--   **arg1** `String` arg1 description
--   **arg2** `Number` arg2 description
--   **arg3** `Element` `Boolean` arg3 description
-
-> Alternative approach
-
-| Property | Type                  | Default           | Description                                              |
-| -------- | --------------------- | ----------------- | -------------------------------------------------------- |
-| `prop1`  | `String`              | `'3'`             | `prop1` description.                                     |
-| `prop2`  | `Number`              | `3`               | `prop2` description.                                     |
-| `prop3`  | `Number[]`            | `[1, 2, 3]`       | `prop3` description.                                     |
-| `prop4`  | `Number[]` `String[]` | `['1', '2', '3']` | `prop4` description.                                     |
-| `prop5`  | `Function`            | `noop`            | `prop5` description. (No function arguments description) |
-
----
+An optional human-readable description of the aggregate error.
 
 ## Browser support
 
-Tested in IE10+ and all modern browsers.
+Tested in IE11+ and all modern browsers.
+
+It works in older IE versions such as IE9, but you can’t test for
+`instanceof AggregateError` due to
+[proper subclassing of native classes](https://babeljs.io/docs/en/caveats/#classes).
 
 ## Test
+
+Test suite is taken and modified from
+[`es-shims/AggregateError`](https://github.com/es-shims/AggregateError/blob/main/test/tests.js)
+polyfill.
 
 For automated tests, run `npm run test:automated` (append `:watch` for watcher
 support).
@@ -106,6 +89,6 @@ MIT © [Ivan Nikolić](http://ivannikolic.com)
 [ci]: https://travis-ci.com/niksy/aggregate-error-ponyfill
 [ci-img]: https://travis-ci.com/niksy/aggregate-error-ponyfill.svg?branch=master
 [browserstack]: https://www.browserstack.com/
-[browserstack-img]: https://www.browserstack.com/automate/badge.svg?badge_key=<badge_key>
+[browserstack-img]: https://www.browserstack.com/automate/badge.svg?badge_key=MnlLM05YZTZTOWlVcHNiUjh0WCtnN1RraklaQ3ZkN0VsVStOSisza3ZwYz0tLXFyT0RBTklSaklVZlI3WHJNc3VWQlE9PQ==--f14238d77ebc29dc4dea435f3e3ab0ce47bb40c2
 
 <!-- prettier-ignore-end -->

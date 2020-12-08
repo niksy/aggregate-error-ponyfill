@@ -64,9 +64,19 @@ if (local) {
 				project: 'aggregate-error-ponyfill',
 				build: 'Automated (Karma)',
 				name: 'IE9'
+			},
+			'BS-IE11': {
+				base: 'BrowserStack',
+				browser: 'IE',
+				'browser_version': '11',
+				os: 'Windows',
+				'os_version': '7',
+				project: 'aggregate-error-ponyfill',
+				build: 'Automated (Karma)',
+				name: 'IE11'
 			}
 		},
-		browsers: ['BS-Chrome', 'BS-Firefox', 'BS-IE9']
+		browsers: ['BS-Chrome', 'BS-Firefox', 'BS-IE9', 'BS-IE11']
 	};
 }
 
