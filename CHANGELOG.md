@@ -2,6 +2,8 @@
 
 ## [Unreleased][]
 
+## [1.0.1][] - 2020-12-15
+
 ### Added
 
 -   Link to ponyfill.com
@@ -18,3 +20,6 @@
 -   Initial implementation
 
 [1.0.0]: https://github.com/niksy/aggregate-error-ponyfill/tree/v1.0.0
+[unreleased]:
+	https://github.com/niksy/aggregate-error-ponyfill/compare/v1.0.1...HEAD
+[1.0.1]: https://github.com/niksy/aggregate-error-ponyfill/tree/v1.0.1
