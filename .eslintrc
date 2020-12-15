@@ -2,9 +2,6 @@
 	"root": true,
 	"extends": ["niksy", "niksy/next", "niksy/browser", "prettier"],
 	"plugins": ["prettier", "unicorn"],
-	"globals": {
-		"globalThis": false
-	},
 	"rules": {
 		"prettier/prettier": 1,
 		"unicorn/custom-error-definition": 0

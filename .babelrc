@@ -4,15 +4,7 @@
 		"@babel/plugin-transform-member-expression-literals",
 		"@babel/plugin-transform-property-literals",
 		"@babel/plugin-transform-object-assign",
-		"babel-plugin-native-error-extend",
-		[
-			"babel-plugin-transform-replace-expressions",
-			{
-				"replace": {
-					"globalThis": "global"
-				}
-			}
-		]
+		"babel-plugin-native-error-extend"
 	],
 	"env": {
 		"test": {

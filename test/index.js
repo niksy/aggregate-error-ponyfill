@@ -1,7 +1,7 @@
 /* Original test suite: https://github.com/es-shims/AggregateError/blob/main/test/tests.js */
 
 import assert from 'assert';
-import AggregateError from '../implementation';
+import AggregateError from '../index';
 
 before(function () {
 	window.fixture.load('/test/fixtures/index.html');
