@@ -1,7 +1,7 @@
 /* Original test suite: https://github.com/es-shims/AggregateError/blob/main/test/tests.js */
 
 import assert from 'assert';
-import AggregateError from '../index';
+import AggregateError, { preferNative } from '../index';
 
 before(function () {
 	window.fixture.load('/test/fixtures/index.html');
@@ -79,5 +79,13 @@ it('should test instance', function () {
 		error.errors,
 		errors,
 		'error.errors is deeply equal to provided errors'
+	);
+});
+
+it('should use native implementation if it’s available', function () {
+	assert.equal(
+		preferNative.name,
+		'AggregateError',
+		'AggregateError has name "AggregateError"'
 	);
 });

@@ -11,3 +11,6 @@ class AggregateError extends Error {
 }
 
 export default AggregateError;
+
+export const preferNative =
+	globalThis.AggregateError ?? /* istanbul ignore next */ AggregateError;

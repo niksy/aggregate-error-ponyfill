@@ -6,6 +6,9 @@
 		"prettier/prettier": 1,
 		"unicorn/custom-error-definition": 0
 	},
+	"globals": {
+		"globalThis": false
+	},
 	"overrides": [
 		{
 			"files": ["karma.conf.js"],

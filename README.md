@@ -43,6 +43,11 @@ try {
 }
 ```
 
+You can **use named export `preferNative` if you wish to use native
+implementation if it’s available**. In all other cases, ponyfill will be used.
+Beware of
+[caveats](https://github.com/sindresorhus/ponyfill#user-content-ponyfill:~:text=Ponyfills%20should%20never%20use%20the%20native,between%20environments%2C%20which%20can%20cause%20bugs.)!
+
 ## API
 
 ### AggregateError(errors[, message])

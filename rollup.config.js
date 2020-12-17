@@ -12,12 +12,13 @@ module.exports = {
 		{
 			file: 'cjs/index.js',
 			format: 'cjs',
-			exports: 'auto',
+			exports: 'named',
 			sourcemap: true
 		},
 		{
 			file: 'esm/index.js',
 			format: 'esm',
+			exports: 'named',
 			sourcemap: true
 		}
 	],

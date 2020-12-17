@@ -2,6 +2,10 @@
 
 ## [Unreleased][]
 
+### Added
+
+-   Named export `preferNative`
+
 ## [1.0.1][] - 2020-12-15
 
 ### Added
