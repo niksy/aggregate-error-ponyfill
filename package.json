@@ -1,6 +1,6 @@
 {
   "name": "aggregate-error-ponyfill",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "AggregateError ponyfill.",
   "license": "MIT",
   "author": "Ivan Nikolić <niksy5@gmail.com> (http://ivannikolic.com)",
